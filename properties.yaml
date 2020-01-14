@@ -1,0 +1,22 @@
+highlightstyle : railscasts
+credits        : WIT Department of Computing & Mathematics
+courseicon     : link database
+license        : Unless otherwise stated, this work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+ects           : 5
+faColour       : "#FF5714"
+faPanelicon    : far fa-newspaper
+ignorepin      : 1122
+ignore :
+
+# - topic-00-Assignments
+# - topic-01-HTML
+# - topic-02-CSS-1
+# - topic-03-CSS-2
+# - topic-04-Tables
+# - topic-05-Deployment
+# - topic-06-Design
+# - topic-07-Layout-1
+# - topic-08-Layout-2
+# - topic-09-semantic-ui-1
+# - topic-10-semantic-ui-2
+# - topic-11-Forms

@@ -1,5 +1,5 @@
 credits        : WIT Computing
 parent         : course/waterford-tech-shed.netlify.com
 ignorepin      : 2125
-ignnore        :
+ignore        :
   - topic-02-web

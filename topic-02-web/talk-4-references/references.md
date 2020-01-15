@@ -1,3 +1,3 @@
 Learning Resources
 
-Useful web and text book resources
+Useful web and text book resources.

@@ -1,1 +1,1 @@
-HTML Fundamentals Labs
+HTML Fundamentals Lab: Part 1

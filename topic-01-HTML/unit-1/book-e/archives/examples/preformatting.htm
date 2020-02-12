@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Preformatting</title></head>
+<body>
+<h1>Another Preformatting Example</h1>
+
+<h3>Assembling jumps & calls </h3>
+<p>
+This routine automatically assembles a short, near or far jump
+or call, depending on byte displacement, to the destination address.
+You can override such a jump or call by using a <strong>near</strong> or
+<strong>far</strong> prefix, as the following example shows:
+</p>
+<hr>
+<pre>
+0100:0500  jmp   502            ; a 2-byte short jump
+
+0100:0502  jmp   near  505      ; a 3-byte near  jump
+
+0100:0505  jmp   far   50a      ; a 5-byte far   jump
+
+</pre>
+<hr>
+<p>
+You can abbreviate the <strong>near</strong> prefix to <strong>ne</strong>.</p>
+</body>
+</html>
+

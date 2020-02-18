@@ -1,4 +1,14 @@
 
+~~~java 
+void colour(int redVal, int greenVal, int blueVal)
+  {
+    red = redVal;
+    green = greenVal;
+    blue = blueVal;
+    fill (red, green, blue);
+  }
+~~~
+
 and then in the *main* tab, refactor the draw() method to: 
 
 ~~~java 

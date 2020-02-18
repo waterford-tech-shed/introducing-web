@@ -1,6 +1,81 @@
 
 and then in the *main* tab, refactor the draw() method to: 
 
+~~~java 
+void draw()
+{
+  background(0);
+  sp.colour(255,10,20);
+  sp.display();
+}
+~~~   
+
+
+Run the code.  
+
+Your output should now look like:
+
+![Drawing spot with display() and colour() methods](./img/02.png)
+
+Save your work (don't close the project though).
+
+
+##Spot V5.1 - Adding a second (overloaded) colour() method
+
+Save your **Spot_Version5_0** work as **Spot_Version5_1**.
+
+Type the following extra method code in your Spot class:
+
+~~~java
+ void colour(int grayVal)
+  {
+    gray = grayVal;
+    fill (gray);
+  }
+~~~ 
+
+Now we want to call this extra method, so you need to change the draw method in the *main* tab:
+
+~~~java
+void draw()
+{
+  background(0);
+  sp.colour(125);
+  sp.display();
+}
+~~~
+
+Run the code.  
+
+Your output should now look like:
+
+![Drawing spot with second colour method](./img/03.png)
+
+Can you explain why the output is different from the previous output. 
+
+Save your work (don't close the project though).
+
+
+##Spot V5.2 - Adding another constructor (to introduce a grayscale starting colour)
+
+Save your **Spot_Version5_1** work as **Spot_Version5_2**.
+
+Type in the following extra method code in your Spot class:
+
+~~~java
+ Spot(float xPos, float yPos, float diamtr, int grayVal)
+   {
+     xCoord = xPos;
+     yCoord = yPos;
+     diameter = diamtr;
+     colour(grayVal);  
+   }
+~~~
+
+This constructor allows us to define the colour (in grayscale) of the spot when creating the object. 
+
+Now we want to call this extra constructor, so you need to change the code in the setup method in the *main* tab:
+
 ~~~java
 Spot sp;
 
@@ -15,26 +90,59 @@ void draw()
 {
   background(0);
   sp.display();
-  sp.move(mouseX, mouseY);
 }
 ~~~
 
-Run the code. 
+Your output should now look like:
 
-What do you see? Do you understand why it looks like this? If you do not understand, ask your lecturer.
+![Drawing spot with second colour method](./img/03.png)
+
+Can you answer why this is producing the same output as the previous version? 
 
 Save your work (don't close the project though).
 
 
-##Spot V6.1 - the this keyword
+##Spot 5.3 - Adding another constructor (to introduce an r,g,b starting colour)
 
-Save your **Spot_Version6_0** work as **Spot_Version6_1**.
+Save your **Spot_Version5_2** work as **Spot_Version5_3**.
 
-Refactor your Spot class to use the *this* keyword:
+Type in the following extra method code in your Spot class:
+
+~~~java
+ Spot(float xPos, float yPos, float diamtr, int redVal, int greenVal, int blueVal)
+   {
+     xCoord = xPos;
+     yCoord = yPos;
+     diameter = diamtr;
+     colour(redVal, greenVal, blueVal);  
+   }
+~~~
+
+Then refactor your setup method in the *main* tab like so:
+
+~~~java
+void setup()
+{
+  size (100,100);
+  noStroke();
+  sp = new Spot(33, 50, 30, 255,150,50);
+}
+~~~
+
+Run the code.  
+
+You should see the a differently coloured spot. 
+
+![Drawing spot using rgb constructor](./img/04.png)
+
+Change the rgb values in the constructor and see how this changes the colour in the spot. 
+
+Also use the colour method in the draw() method to change the colour. Will this work? Is this the best use of the constructor?
+
+Note that now, your Spot class should look like: 
 
 ~~~java
 class Spot{
-  
   float xCoord, yCoord;
   float diameter;
   int red, green, blue, gray;
@@ -43,27 +151,27 @@ class Spot{
   {
   }
   
- Spot(float xCoord, float yCoord, float diameter)
- {
-    this.xCoord = xCoord;
-    this.yCoord = yCoord;
-    this.diameter = diameter;
-  }
+  Spot(float xPos, float yPos, float diamtr)
+  {
+     xCoord = xPos;
+     yCoord = yPos;
+     diameter = diamtr;
+   }
   
-   Spot(float xCoord, float yCoord, float diameter, int gray)
+   Spot(float xPos, float yPos, float diamtr, int grayVal)
    {
-    this.xCoord = xCoord;
-    this.yCoord = yCoord;
-    this.diameter = diameter;
-    colour(gray);
+     xCoord = xPos;
+     yCoord = yPos;
+     diameter = diamtr;
+     colour(grayVal);
    }
 
-   Spot(float xCoord, float yCoord, float diameter, int red, int green, int blue)
+   Spot(float xPos, float yPos, float diamtr, int redVal, int greenVal, int blueVal)
    {
-    this.xCoord = xCoord;
-    this.yCoord = yCoord;
-    this.diameter = diameter;
-     colour(red, green, blue);  
+     xCoord = xPos;
+     yCoord = yPos;
+     diameter = diamtr;
+     colour(redVal, greenVal, blueVal);  
    }
    
    void display()
@@ -71,30 +179,20 @@ class Spot{
      ellipse(xCoord, yCoord, diameter, diameter);
    } 
   
-  void colour(int red, int green, int blue)
-  {
-    this.red = red;
-    this.green = green;
-    this.blue = blue;
-    fill (this.red, this.green, this.blue);
-  }
-
-  void colour(int gray){
-    this.gray = gray;
-    fill (this.gray);
-  }
-   
-   void move(float xCoord, float yCoord)
+   void colour(int redVal, int greenVal, int blueVal)
    {
-     this.xCoord = xCoord;
-     this.yCoord = yCoord;
+     red = redVal;
+     green = greenVal;
+     blue = blueVal;
+     fill (red, green, blue);
+   }
+
+   void colour(int grayVal)
+   {
+     gray = grayVal;
+     fill (gray);
    }
 }
 ~~~
 
-No other changes are necessary.
-
-Run your code.  It should behave in the same way at V6.0 above.
-
 Save your work (don't close the project though).
-

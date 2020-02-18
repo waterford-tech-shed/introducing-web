@@ -1,0 +1,100 @@
+
+and then in the *main* tab, refactor the draw() method to: 
+
+~~~java
+Spot sp;
+
+void setup()
+{
+  size (100,100);
+  noStroke();
+  sp = new Spot(33, 50, 30, 125);
+}
+
+void draw()
+{
+  background(0);
+  sp.display();
+  sp.move(mouseX, mouseY);
+}
+~~~
+
+Run the code. 
+
+What do you see? Do you understand why it looks like this? If you do not understand, ask your lecturer.
+
+Save your work (don't close the project though).
+
+
+##Spot V6.1 - the this keyword
+
+Save your **Spot_Version6_0** work as **Spot_Version6_1**.
+
+Refactor your Spot class to use the *this* keyword:
+
+~~~java
+class Spot{
+  
+  float xCoord, yCoord;
+  float diameter;
+  int red, green, blue, gray;
+  
+  Spot()
+  {
+  }
+  
+ Spot(float xCoord, float yCoord, float diameter)
+ {
+    this.xCoord = xCoord;
+    this.yCoord = yCoord;
+    this.diameter = diameter;
+  }
+  
+   Spot(float xCoord, float yCoord, float diameter, int gray)
+   {
+    this.xCoord = xCoord;
+    this.yCoord = yCoord;
+    this.diameter = diameter;
+    colour(gray);
+   }
+
+   Spot(float xCoord, float yCoord, float diameter, int red, int green, int blue)
+   {
+    this.xCoord = xCoord;
+    this.yCoord = yCoord;
+    this.diameter = diameter;
+     colour(red, green, blue);  
+   }
+   
+   void display()
+   {
+     ellipse(xCoord, yCoord, diameter, diameter);
+   } 
+  
+  void colour(int red, int green, int blue)
+  {
+    this.red = red;
+    this.green = green;
+    this.blue = blue;
+    fill (this.red, this.green, this.blue);
+  }
+
+  void colour(int gray){
+    this.gray = gray;
+    fill (this.gray);
+  }
+   
+   void move(float xCoord, float yCoord)
+   {
+     this.xCoord = xCoord;
+     this.yCoord = yCoord;
+   }
+}
+~~~
+
+No other changes are necessary.
+
+Run your code.  It should behave in the same way at V6.0 above.
+
+Save your work (don't close the project though).
+
